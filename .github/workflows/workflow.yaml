@@ -41,5 +41,5 @@ jobs:
         run: |
           go test 
         env:        
-          FLASK_APP=main.py
+          ${{secrets.FLASK_APP}}
         

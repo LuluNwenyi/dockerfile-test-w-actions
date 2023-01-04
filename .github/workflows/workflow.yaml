@@ -33,11 +33,11 @@ jobs:
             ${{ runner.os }}-go- 
             
       - name: Get Golang Dependencies
-        working-directory: /go_test/
+        working-directory: ../go_test/
         run: go mod tidy
 
       - name: Test Dockerfile
-        working-directory: /go_test/
+        working-directory: ../go_test/
         run: |
           go test 
         

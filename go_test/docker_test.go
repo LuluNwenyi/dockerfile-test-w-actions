@@ -14,7 +14,7 @@ func TestDockerTask(t *testing.T) {
 
 	// Build the Dockerfile
 	buildOptions := &docker.BuildOptions{Tags: []string{tag}}
-	docker.Build(t, "/Users/lulu/Documents/DevopsProjects/dockerhub-actions/app", buildOptions)
+	docker.Build(t, "../app", buildOptions)
 	fmt.Println("Build Successful")
 
 	// Run the container

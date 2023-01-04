@@ -1,0 +1,45 @@
+name: Docker Container Test
+
+on:
+  push: {}
+
+jobs:
+  build:
+    name: Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cancel Previous Runs               
+        uses: styfle/cancel-workflow-action@0.4.1
+        with:                                    
+          access_token: ${{ github.token }}
+
+      - name: Checkout
+        uses: actions/checkout@v1
+      
+      - name: Setup Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: '1.17.3'
+
+      - name: Cache Golang Dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go- 
+            
+      - name: Get Golang Dependencies
+        working-directory: app/go_test/
+        run: go mod tidy
+
+      - name: Test Dockerfile
+        working-directory: app/go_test/
+        run: |
+          go test 
+        env:        
+          FLASK_APP=main.py
+        

@@ -4,4 +4,4 @@ WORKDIR /app
 RUN pip install -r requirements.txt
 EXPOSE 5002
 ENTRYPOINT ["flask"]
-CMD ["run", "--env-file=.env", "--host=0.0.0.0", "--port=5002"]
+CMD ["run", "--host=0.0.0.0", "--port=5002"]

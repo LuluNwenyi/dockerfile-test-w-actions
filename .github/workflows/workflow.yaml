@@ -40,6 +40,4 @@ jobs:
         working-directory: app/go_test/
         run: |
           go test 
-        env:        
-          ${{secrets.FLASK_APP}}
         

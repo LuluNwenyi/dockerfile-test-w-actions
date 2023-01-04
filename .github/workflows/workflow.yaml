@@ -1,4 +1,4 @@
-name: Docker Container Test
+name: Dockerfile Test
 
 on:
   push: {}

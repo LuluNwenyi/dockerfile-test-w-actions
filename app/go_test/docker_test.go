@@ -3,7 +3,6 @@ package test
 import (
 	"fmt"
 	"testing"
-	"github.com/gruntwork-io/terratest/modules/logger"
 	"github.com/gruntwork-io/terratest/modules/docker"
 )
 
